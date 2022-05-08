@@ -56,7 +56,7 @@ function addHeadingIntoTheTable() {
   heading_data_column2.innerText = "Age";
 
   let heading_data_column3 = document.createElement("th");
-  head3.innerText = "DOB";
+  heading_data_column3.innerText = "DOB";
 
   let heading_data_column4 = document.createElement("th");
   heading_data_column4.innerText = "Email";
