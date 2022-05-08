@@ -1,63 +1,76 @@
+//* global variables for table structure
 var table = document.createElement("table");
 var thead = document.createElement("thead");
 var tbody = document.createElement("tbody");
 table.appendChild(thead);
 table.append(tbody);
 
-function appendData(name, age, dob, email, company) {
+function appendDataToTable(name, age, dob, email, company) {
   let row = document.createElement("tr");
 
+  //? creating a reference of td and creating a text node, appending it to the parent(td) element
   let row_data_Name = document.createElement("td");
-  row_data_Name.innerText = name;
+  let name_textNode = document.createTextNode(name);
+  row_data_Name.appendChild(name_textNode);
 
+  //? creating a reference of td and creating a text node, appending it to the parent(td) element
   let row_data_Age = document.createElement("td");
-  row_data_Age.innerText = age;
+  let age_textNode = document.createTextNode(age);
+  row_data_Age.appendChild(age_textNode);
 
+  //? creating a reference of td and creating a text node, appending it to the parent(td) element
   let row_data_DOB = document.createElement("td");
-  row_data_DOB.innerText = dob;
+  let dob_textNode = document.createTextNode(dob);
+  row_data_DOB.appendChild(dob_textNode);
 
+  //? creating a reference of td and creating a text node, appending it to the parent(td) element
   let row_data_Email = document.createElement("td");
-  row_data_Email.innerText = email;
+  let email_textNode = document.createTextNode(email);
+  row_data_Email.appendChild(email_textNode);
 
+  //? creating a reference of td and creating a text node, appending it to the parent(td) element
   let row_data_Company = document.createElement("td");
-  row_data_Company.innerText = company;
+  let company_textNode = document.createTextNode(company);
+  row_data_Company.appendChild(company_textNode);
 
+  //! appending all the tds to the single row
   row.appendChild(row_data_Name);
   row.appendChild(row_data_Age);
   row.appendChild(row_data_DOB);
   row.appendChild(row_data_Email);
   row.appendChild(row_data_Company);
 
+  //! the row is being added to the tbody
   tbody.appendChild(row);
 }
 
-function addHeading() {
+function addHeadingIntoTheTable() {
   //   adding heading data
 
-  let row1 = document.createElement("tr");
+  let heading_row = document.createElement("tr");
 
-  let head1 = document.createElement("th");
-  head1.innerText = "Name";
+  let heading_data_column1 = document.createElement("th");
+  heading_data_column1.innerText = "Name";
 
-  let head2 = document.createElement("th");
-  head2.innerText = "Age";
+  let heading_data_column2 = document.createElement("th");
+  heading_data_column2.innerText = "Age";
 
-  let head3 = document.createElement("th");
+  let heading_data_column3 = document.createElement("th");
   head3.innerText = "DOB";
 
-  let head4 = document.createElement("th");
-  head4.innerText = "Email";
+  let heading_data_column4 = document.createElement("th");
+  heading_data_column4.innerText = "Email";
 
-  let head5 = document.createElement("th");
-  head5.innerText = "Company";
+  let heading_data_column5 = document.createElement("th");
+  heading_data_column5.innerText = "Company";
 
-  row1.appendChild(head1);
-  row1.appendChild(head2);
-  row1.appendChild(head3);
-  row1.appendChild(head4);
-  row1.appendChild(head5);
+  heading_row.appendChild(heading_data_column1);
+  heading_row.appendChild(heading_data_column2);
+  heading_row.appendChild(heading_data_column3);
+  heading_row.appendChild(heading_data_column4);
+  heading_row.appendChild(heading_data_column5);
 
-  thead.appendChild(row1);
+  thead.appendChild(heading_row);
 }
 
 // self invoking function
@@ -67,31 +80,43 @@ function addHeading() {
 
   body.appendChild(table);
 
-  addHeading();
+  addHeadingIntoTheTable();
 
-  appendData(
+  appendDataToTable(
     "Sachin Sharma",
     20,
     "15-dec-2001",
     "sachin@sachin.com",
     "Gemini Solutions"
   );
-  appendData("Dev", 22, "09-feb-2000", "dev@dev.com", "Gemini Solutions");
-  appendData(
+  appendDataToTable(
+    "Dev",
+    22,
+    "09-feb-2000",
+    "dev@dev.com",
+    "Gemini Solutions"
+  );
+  appendDataToTable(
     "Anand Godara",
     22,
     "10-apr-2000",
     "anand@anand.com",
     "Gemini Solution"
   );
-  appendData(
+  appendDataToTable(
     "Anmol Bhandari",
     20,
     "15-jun-2001",
     "anmol@bhandari.com",
     "Gemini Solution"
   );
-  appendData("Raj Anand", 22, "15-dec-200", "raj@anand.com", "Gemini Solution");
+  appendDataToTable(
+    "Raj Anand",
+    22,
+    "15-dec-200",
+    "raj@anand.com",
+    "Gemini Solution"
+  );
 
   // apply styles
   styles();
@@ -111,10 +136,12 @@ function styles() {
   let th = document.getElementsByTagName("th");
   let td = document.getElementsByTagName("td");
 
+  //applying border style to every th
   for (let i of th) {
     i.style.border = "1px solid black";
     i.style.padding = "10px";
   }
+  //applying border style to every td
   for (let i of td) {
     i.style.border = "1px solid black";
     i.style.padding = "10px";
